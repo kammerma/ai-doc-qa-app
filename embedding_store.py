@@ -1,6 +1,11 @@
 import openai
 import chromadb
 from chromadb.config import Settings
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def create_vector_store(text_chunks: list[str], collection_name: str = "docs"):
     client = chromadb.Client(Settings())

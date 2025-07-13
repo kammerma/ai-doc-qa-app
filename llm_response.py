@@ -1,4 +1,9 @@
 import openai
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_answer(question: str, context_chunks: list[str]) -> str:
     context = "\n".join(context_chunks)

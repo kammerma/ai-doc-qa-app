@@ -11,7 +11,7 @@ collection = None
 @app.post("/upload/")
 async def upload_pdf(file: UploadFile):
     file_path = save_uploaded_file(file)
-    text = extract_text_from_pdf(file_path, endpoint="YOUR_AZURE_ENDPOINT", key="YOUR_AZURE_KEY")
+    text = extract_text_from_pdf(file_path)
     chunks = [text[i:i+1000] for i in range(0, len(text), 1000)]
     global collection
     collection = create_vector_store(chunks)
