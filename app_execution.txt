@@ -1,6 +1,7 @@
-
 python -m venv C:\temp\venv
 c:\temp\venv\Scripts\Activate.ps1
+
+conda activate base
 pip install -r requirements.txt
 uvicorn main:app --reload
 
